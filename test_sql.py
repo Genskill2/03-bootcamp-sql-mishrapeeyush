@@ -57,7 +57,7 @@ def test_run_query2(db):
 
     assert set(items) == expected
 
-    
+
 def test_run_query3(db):
     with open("query3.sql") as f:
         query = f.read()
@@ -81,7 +81,7 @@ def test_run_update1(db):
 
     items = run_query(db, "select name from publisher")
     assert set (x[0] for x in items) == set(["Prentice Hall","Harper","GCP","Avery","Del Rey","Vintage"]), "Publisher mismatch"
-    
+
 def test_run_delete(db):
     cur = db.cursor()
     with open("delete1.sql") as f:
@@ -94,5 +94,3 @@ def test_run_delete(db):
 
     items = run_query(db, "select name from subjects")  
     assert set(x[0] for x in items) == set(["C","UNIX","Technology","Science Fiction","Productivity","Psychology","Politics","Go"]), "Subjects mismatch"
-
-    
